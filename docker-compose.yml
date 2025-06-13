@@ -4,19 +4,8 @@ services:
     image: mongo # MongoDB image - banco de sados
     restart: always
     ports:
-      - 27017:27017 # a porta 27017 do container será mapeada para a porta 27017 do host 
+      - 27018:27017 # a porta 27017 do container será mapeada para a porta 27017 do host 
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
 
-  mongo-express:
-  
-    image: mongo-express # interface gráfica visual web para acessar o mongo db
-    restart: always
-    ports:
-      - 8081:8081 # a porta 8081 do container será mapeada para a porta 8081 do host
-    environment:
-      ME_CONFIG_MONGODB_ADMINUSERNAME: root
-      ME_CONFIG_MONGODB_ADMINPASSWORD: example
-      ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017/ # mesmo nome que foi dado a imagem do mongo
-      ME_CONFIG_BASICAUTH: false
